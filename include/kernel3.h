@@ -28,7 +28,7 @@ void mydgemm_cpu_opt_k3(int M, int N, int K, double alpha, double *A, int LDA, d
 void mydgemm_cpu_v3(int M, int N, int K, double alpha, double *A, int LDA, double *B, int LDB, double beta, double *C, int LDC){
     int i,j,k;
     if (beta != 1.0) scale_c_k3(C,M,N,LDC,beta);
-    int M2=M&-2,N2=N&-2;
+    int M2=M&-2,N2=N&-2; //向下取整后的偶数
     for (i=0;i<M2;i+=2){
         for (j=0;j<N2;j+=2){
             double c00=C(i,j);

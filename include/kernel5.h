@@ -3,6 +3,8 @@
 #define B(i,j) B[(i)+(j)*LDB]
 #define C(i,j) C[(i)+(j)*LDC]
 
+// C: 4x4 blocking + SIMD 
+
 void scale_c_k5(double *C,int M, int N, int LDC, double scalar){
     int i,j;
     for (i=0;i<M;i++){

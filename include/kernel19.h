@@ -7,10 +7,15 @@
 #define M_BLOCKING 192
 #define N_BLOCKING 9216
 #define K_BLOCKING 384
+// #define M_BLOCKING 8
+// #define N_BLOCKING 16
+// #define K_BLOCKING 8000
 #define MIN(a, b) ((a) < (b)) ? (a) : (b)
 #define MAX(a, b) ((a) > (b)) ? (a) : (b)
 
 #include "omp.h"
+
+// + omp, multi-thread
 
 void scale_c_k19(double *C,int M, int N, int LDC, double scalar){
     int m_count,n_count;
@@ -696,6 +701,7 @@ void mydgemm_cpu_v19(\
     {
         int nthr = omp_get_num_threads();
         int ithr = omp_get_thread_num();
+        // printf("nthr %d, ithr %d\n", nthr, ithr);
         int m_offset = 0, m_block = 0;
         partition_m_dim(ithr, nthr, M, &m_offset, &m_block);
 

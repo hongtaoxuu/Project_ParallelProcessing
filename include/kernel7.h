@@ -3,6 +3,8 @@
 #define B(i,j) B[(i)+(j)*LDB]
 #define C(i,j) C[(i)+(j)*LDC]
 
+// 8x4 blocking
+
 void scale_c_k7(double *C,int M, int N, int LDC, double scalar){
     int i,j;
     for (i=0;i<M;i++){

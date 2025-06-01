@@ -2,6 +2,8 @@
 #define B(i,j) B[(i)+(j)*LDB]
 #define C(i,j) C[(i)+(j)*LDC]
 
+//baseline + col-first
+
 void scale_c_k1(double *C,int M, int N, int LDC, double scalar){
     int i,j;
     for (i=0;i<M;i++){

@@ -3,6 +3,9 @@
 #define B(i,j) B[(i)+(j)*LDB]
 #define C(i,j) C[(i)+(j)*LDC]
 
+// 5 + loop unroll x 4
+// 没啥大用
+
 void scale_c_k6(double *C,int M, int N, int LDC, double scalar){
     int i,j;
     for (i=0;i<M;i++){
